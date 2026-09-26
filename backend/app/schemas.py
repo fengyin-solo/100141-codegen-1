@@ -19,6 +19,7 @@ class ActionResult(BaseModel):
     ok: bool
     message: str
     entry: dict[str, Any] | None = None
+    receipt: dict[str, Any] | None = None
 
 
 class EntryPayload(BaseModel):
@@ -244,3 +245,15 @@ class ArchiveEntry(BaseModel):
     field_5: str | None = None  # 归档人员
     field_6: str | None = None  # 归档日期
     field_7: str | None = None  # 档案状态
+
+class OccupyEntry(BaseModel):
+    """占道掘路许可明细结构。"""
+
+    field_0: str | None = None  # 许可编号
+    field_1: str | None = None  # 申请编号
+    field_2: str | None = None  # 申请单位
+    field_3: str | None = None  # 占道掘路路段
+    field_4: str | None = None  # 占用时段
+    field_5: str | None = None  # 恢复要求
+    field_6: str | None = None  # 随附材料
+    field_7: str | None = None  # 许可状态

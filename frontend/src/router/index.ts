@@ -19,6 +19,7 @@ const Equip = () => import('@/views/equip/index.vue')
 const Fund = () => import('@/views/fund/index.vue')
 const Complaint = () => import('@/views/complaint/index.vue')
 const Archive = () => import('@/views/archive/index.vue')
+const Occupy = () => import('@/views/occupy/index.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -42,6 +43,7 @@ const router = createRouter({
     { path: '/fund', name: 'fund', component: Fund },
     { path: '/complaint', name: 'complaint', component: Complaint },
     { path: '/archive', name: 'archive', component: Archive },
+    { path: '/occupy', name: 'occupy', component: Occupy },
   ],
 })
 
