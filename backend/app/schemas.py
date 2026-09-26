@@ -28,6 +28,40 @@ class EntryPayload(BaseModel):
     remark: str | None = None
 
 
+class BatchPayload(BaseModel):
+    """多人同时提交时一次携带的多条记录。"""
+
+    items: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class Receipt(BaseModel):
+    """单条提交的回执：每条申请独立给出结果与说明。"""
+
+    序号: int
+    申请编号: str = ""
+    ok: bool
+    message: str
+    entry: dict[str, Any] | None = None
+
+
+class BatchResult(BaseModel):
+    ok: bool
+    receipts: list[Receipt]
+
+
+class OccupyEntry(BaseModel):
+    """占道掘路许可明细结构。"""
+
+    field_0: str | None = None  # 许可编号
+    field_1: str | None = None  # 申请编号
+    field_2: str | None = None  # 路段
+    field_3: str | None = None  # 占用时段
+    field_4: str | None = None  # 恢复要求
+    field_5: str | None = None  # 随附材料
+    field_6: str | None = None  # 申请人
+    field_7: str | None = None  # 许可状态
+
+
 
 class RoadEntry(BaseModel):
     """道路设施明细结构。"""
